@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  mysql:
+    image: mysql:8
+    command: mysqld --default-authentication-plugin=mysql_native_password
+    ports:
+      - 3306:3306
+    volumes:
+      - ~/apps/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=S3cret
+      - MYSQL_PASSWORD=An0thrS3crt
+      - MYSQL_USER=db_user
+      - MYSQL_DATABASE=testappdb

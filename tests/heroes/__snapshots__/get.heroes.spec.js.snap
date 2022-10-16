@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GET /heroes should work correct Returns  correct with correct params 1`] = `
+{
+  "list": [
+    {
+      "createdAt": "2022-10-07T13:42:31.000Z",
+      "id": 1,
+      "name": "Arc Warden",
+      "ownerId": 13,
+      "updatedAt": "2022-10-07T13:42:31.000Z",
+    },
+    {
+      "createdAt": "2022-10-07T13:42:58.000Z",
+      "id": 2,
+      "name": "Drow Ranger",
+      "ownerId": 4,
+      "updatedAt": "2022-10-07T13:42:58.000Z",
+    },
+    {
+      "createdAt": "2022-10-07T13:43:22.000Z",
+      "id": 3,
+      "name": "Phantom Assassin",
+      "ownerId": 7,
+      "updatedAt": "2022-10-07T13:43:22.000Z",
+    },
+  ],
+}
+`;
