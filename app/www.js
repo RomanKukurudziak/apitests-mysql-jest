@@ -15,31 +15,38 @@ app.get('/heroes', async (req, res) => {
 });
 
 app.get('/heroes/:id', async (req, res) => {
-  await Heroes.sync();
+  await Hero.sync();
 
-  const hero = await Hero.findOne({ where: {id: req.params.id } });
+  const hero = await Hero.findOne({ where: { id: req.params.id } });
 
-  res.send({ data: hero })
+  res.send({ data: hero });
 });
 
 app.put('/heroes/:id', async (req, res) => {
   await Hero.sync();
 
-  const updatedHero = await Hero.update(
-    {
-      name: req.body.name,
-      ownerId: req.body.ownerId,
-    },
-    { where: { id: req.params.id } },
-  );
+  try {
+    console.log(parseInt(req.params.id))
+    if (!parseInt(req.params.id)) return res.send({success: false, message: 'Incorrect hero ID'})
+    const updated = await Hero.update(
+      {
+        name: req.body.name,
+        ownerId: req.body.ownerId,
+      },
+      { where: { id: req.params.id } },
+    );
 
-  res.send({ data: updatedHero });
+    res.send({ success: Boolean(updated) });
+  } catch (err) {
+    console.log(err);
+    res.send({success: false});
+  }
 });
 
 app.delete('/heroes/:id', async (req, res) => {
   await Hero.sync();
 
-  const deleted = await Hero.destroy({ where: { id: req.params.id } })
+  const deleted = await Hero.destroy({ where: { id: req.params.id } });
 
   res.send({ success: Boolean(deleted) });
 });

@@ -1,1 +1,1 @@
-cat backup.sql | docker exec -i mysql-jest-api-tests_mysql_1 /usr/bin/mysql -u root --password=S3cret testappdb
+cat ./backup.sql | docker exec -i apitests-mysql-jest-mysql-1 /usr/bin/mysql -u root --password=S3cret testappdb
